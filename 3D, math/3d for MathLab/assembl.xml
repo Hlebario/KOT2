@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="" on="12/30/23||14:56:14" using="Simscape Multibody Link Version 7.4" from="SolidWorks 30.5.0"/>
+<ModelUnits mass="kilogram" length="millimeter"/>
+<DataUnits mass="kilogram" length="meter"/>
+<RootAssembly name="assembl" uid="assembl" version="200">
+<AssemblyFile name="assembl.SLDASM" type="SolidWorks Assembly"/>
+<InstanceTree>
+<Instance name="4-2" uid="4-2" entityUid="4*:*По умолчанию">
+<Transform>
+<Rotation>-0.11194489426808495 -0.96208991366324537 0.24869929367562807 0.39489634376389182 -0.27273246603118051 -0.87731059474650197 0.91188004601987938 0 0.41045679635106852</Rotation>
+<Translation>-0.086557775895786684 -0.17197584446929726 -0.17453526553220022</Translation>
+</Transform>
+</Instance>
+<Instance name="4-3" uid="4-3" entityUid="4*:*По умолчанию">
+<Transform>
+<Rotation>0.022051766050240593 -0.99191456224625252 -0.12497688113363568 0.1723576325797806 0.1269074513329515 -0.97682513547086214 0.9847875741019273 0 0.1737625790970001</Rotation>
+<Translation>0.062732581179381158 -0.15883241230892028 0.12008778780596351</Translation>
+</Transform>
+</Instance>
+<Instance name="3-4" uid="3-4" entityUid="3*:*По умолчанию">
+<Transform>
+<Rotation>-0.0044243722297661698 0.17139692502003046 0.98519212289991964 -0.025422889876891359 0.98486404934608007 -0.17145402000521734 -0.99966699535429326 -0.025805007252858329 1.3337238645726531e-16</Rotation>
+<Translation>0.014140238336283112 -0.038732131946011154 -0.16709087735265296</Translation>
+</Transform>
+</Instance>
+<Instance name="3-2" uid="3-2" entityUid="3*:*По умолчанию">
+<Transform>
+<Rotation>0.034870324452676245 -0.27049410067506829 -0.96208991366324537 -0.12300841161407305 0.95419386533593586 -0.27273246603118023 0.99179281664304653 0.12785542168892225 0</Rotation>
+<Translation>-0.10652348549734582 -0.04314625844839147 -0.14626711038650492</Translation>
+</Transform>
+</Instance>
+<Instance name="4-4" uid="4-4" entityUid="4*:*По умолчанию">
+<Transform>
+<Rotation>-0.12175664963808429 -0.98519212289991975 -0.12071370777528981 -0.69962601127973656 0.17145402000521678 -0.69363316195584002 0.70405877780886639 0 -0.7101417023315032</Rotation>
+<Translation>0.05319065768902545 -0.16792519828123451 -0.16646647695025493</Translation>
+</Transform>
+</Instance>
+<Instance name="2-6" uid="2-6" entityUid="2*:*По умолчанию">
+<Transform>
+<Rotation>-1.2040962109915529e-16 -0.17145402000521712 0.98519212289991998 2.7260716605819964e-16 -0.98519212289991998 -0.17145402000521712 1 2.4792571906185343e-16 1.6536620473115983e-16</Rotation>
+<Translation>-0.028636258562081955 0.036255507364439464 -0.14197608640879308</Translation>
+</Transform>
+</Instance>
+<Instance name="2-3" uid="2-3" entityUid="2*:*По умолчанию">
+<Transform>
+<Rotation>0 0.12690745133295117 0.99191456224625241 -1.2438032116487521e-16 0.99191456224625241 -0.12690745133295117 -1 -1.2308899175599846e-16 0</Rotation>
+<Translation>-0.030190634966534242 0.025955357124890187 0.024976086408793119</Translation>
+</Transform>
+</Instance>
+<Instance name="3-3" uid="3-3" entityUid="3*:*По умолчанию">
+<Transform>
+<Rotation>-0.053390270241860348 0.11513027511183389 0.99191456224625241 -0.41730084387419536 0.89986360327444015 -0.12690745133295142 -0.90719870190900609 -0.42070240699883621 0</Rotation>
+<Translation>0.017156087632197999 -0.037367137301387222 0.048452910606273138</Translation>
+</Transform>
+</Instance>
+<Instance name="1-1" uid="1-1" grounded="true" entityUid="1*:*По умолчанию">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="1-3" uid="1-3" entityUid="1*:*По умолчанию">
+<Transform>
+<Rotation>-1 -1.1102230246251565e-16 0 -1.6653345369377348e-16 1 -1.2402767442573804e-16 0 0 -1</Rotation>
+<Translation>-0.10000000000000003 0 -0.12199999999999998</Translation>
+</Transform>
+</Instance>
+<Instance name="2-1" uid="2-1" entityUid="2*:*По умолчанию">
+<Transform>
+<Rotation>-1.581151431928388e-15 0.25330672112913855 -0.96738601655740541 -1.17538755430681e-15 -0.96738601655740553 -0.25330672112913849 -0.99999999999999989 7.3653719924159371e-16 1.8273173527446948e-15</Rotation>
+<Translation>-0.071910260594223313 0.03678158661955401 0.024976086408792925</Translation>
+</Transform>
+</Instance>
+<Instance name="3-1" uid="3-1" entityUid="3*:*По умолчанию">
+<Transform>
+<Rotation>0.034080700208375073 -0.25100358731002592 -0.96738601655740564 -0.13015522315832145 0.95859027895937532 -0.2533067211291381 0.99090772716631614 0.1345432132888375 1.3958899000248902e-15</Rotation>
+<Translation>-0.1079783938932123 -0.042601195304255046 0.043310624084812906</Translation>
+</Transform>
+</Instance>
+<Instance name="2-2" uid="2-2" entityUid="2*:*По умолчанию">
+<Transform>
+<Rotation>1.5275400866607201e-16 -0.27273246603118051 -0.96208991366324559 0 0.96208991366324559 -0.27273246603118051 1 0 1.4843904339107268e-16</Rotation>
+<Translation>-0.069298766903482675 0.027202805530244303 -0.14197608640879306</Translation>
+</Transform>
+</Instance>
+<Instance name="4-1" uid="4-1" entityUid="4*:*По умолчанию">
+<Transform>
+<Rotation>-0.099871095847665681 -0.96738601655740553 0.23278758382564441 0.38141073063767306 -0.25330672112913832 -0.88902281162253705 0.91899489594263939 1.965559053155308e-15 0.39426942720857422</Rotation>
+<Translation>-0.090620904259658588 -0.17176711508182985 0.013726233631242663</Translation>
+</Transform>
+</Instance>
+</InstanceTree>
+<Constraints>
+<Parallel name="Параллельность1">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>0 0 -0.060999999999999999</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>0 0 -0.060999999999999992</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Parallel>
+<Coincident name="Совпадение4">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>0 0 -0.060999999999999999</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>0 0 -0.060999999999999992</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный1">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>-0.077911753339781245 0.030000000000000169 0.090104980868729465</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>-0.02208824666021876 0.030000000000000169 0.090104980868729437</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Концентричный2">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>-0.022088246660218767 0.030000000000000176 0.090104980868729451</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>-0.077911753339781245 0.030000000000000169 0.090104980868729492</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="Концентричный3">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>-0.077911753339781245 0.030000000000000169 0.090104980868729465</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-1</Uid>
+</InstancePath>
+<Position>0.025976086408793057 0.0050401936165715491 0.007523581631175856</Position>
+<Axis>-0.99999999999999989 -1.2616170734376782e-16 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение5">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>-0.11189170309613797 -0.077602351806163594 0.063999999999999987</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-1</Uid>
+</InstancePath>
+<Position>-0.03902391359120691 0.032540193616571539 0.054999999999999973</Position>
+<Axis>-0.99999999999999989 0 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный4">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>-0.02208824666021876 0.030000000000000169 0.090104980868729437</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-2</Uid>
+</InstancePath>
+<Position>0.02597608640879305 0.0050401936165715491 0.0075235816311758769</Position>
+<Axis>-1 -1.2616170734376785e-16 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение6">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>0.011891703096137962 -0.07760235180616358 0.0040000000000000174</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-2</Uid>
+</InstancePath>
+<Position>0.015976086408793028 0.032540193616571574 0.055000000000000021</Position>
+<Axis>1 1.2616170734376785e-16 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный5">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-1</Uid>
+</InstancePath>
+<Position>-0.011523913591206924 0.0050401936165715422 0.064999999999999974</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-1</Uid>
+</InstancePath>
+<Position>-0.01517343264587772 0.061131642173345033 0.0099999999999999672</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение7">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-1</Uid>
+</InstancePath>
+<Position>-0.011523913591206924 0.0050401936165715422 0.064999999999999974</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-1</Uid>
+</InstancePath>
+<Position>-0.01517343264587772 0.061131642173345033 0.0099999999999999672</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный6">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-1</Uid>
+</InstancePath>
+<Position>-0.031007416938446896 -0.093698436977586078 -0.014142135623730956</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>4-1</Uid>
+</InstancePath>
+<Position>0.003403106264332996 0.059999999999999998 -0.042800743613471706</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение8">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-1</Uid>
+</InstancePath>
+<Position>0.011831417980685238 -0.089443738017678798 0.065927202866446835</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>4-1</Uid>
+</InstancePath>
+<Position>0.075432441833817004 0.049999999999999989 0.022038685013739179</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный7">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-2</Uid>
+</InstancePath>
+<Position>-0.011523913591206941 0.0050401936165715491 0.06500000000000003</Position>
+<Axis>0 0 -1.0000000000000002</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-2</Uid>
+</InstancePath>
+<Position>-0.015173432645877727 0.061131642173345019 0.0099999999999999534</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение9">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-2</Uid>
+</InstancePath>
+<Position>-0.011523913591206941 0.0050401936165715491 0.06500000000000003</Position>
+<Axis>0 0 1.0000000000000002</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-2</Uid>
+</InstancePath>
+<Position>-0.015173432645877727 0.061131642173345019 0.0099999999999999534</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный9">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>-0.022088246660218767 0.030000000000000176 0.090104980868729451</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-3</Uid>
+</InstancePath>
+<Position>0.025976086408793064 0.0050401936165715457 0.0075235816311758665</Position>
+<Axis>-1 -1.261617073437678e-16 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение11">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-3</Uid>
+</InstancePath>
+<Position>-0.039023913591206938 0.032540193616571553 0.054999999999999993</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-1</Uid>
+</InstancePath>
+<Position>0.011891703096137948 -0.077602351806163594 0.063999999999999987</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный10">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-3</Uid>
+</InstancePath>
+<Position>-0.011523913591206931 0.0050401936165715491 0.065000000000000002</Position>
+<Axis>0 0 -1.0000000000000002</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-3</Uid>
+</InstancePath>
+<Position>-0.01517343264587773 0.061131642173345005 0.009999999999999943</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение12">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-3</Uid>
+</InstancePath>
+<Position>-0.011523913591206931 0.0050401936165715491 0.065000000000000002</Position>
+<Axis>0 0 1.0000000000000002</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-3</Uid>
+</InstancePath>
+<Position>-0.01517343264587773 0.061131642173345005 0.009999999999999943</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный14">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>-0.077911753339781245 0.030000000000000169 0.090104980868729492</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-6</Uid>
+</InstancePath>
+<Position>0.025976086408793078 0.0050401936165715457 0.0075235816311758665</Position>
+<Axis>-1 -1.2616170734376775e-16 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение14">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>1-3</Uid>
+</InstancePath>
+<Position>-0.11189170309613798 -0.07760235180616358 0.0040000000000000174</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-6</Uid>
+</InstancePath>
+<Position>0.015976086408793083 0.032540193616571553 0.055000000000000021</Position>
+<Axis>1 1.2616170734376775e-16 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный15">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-4</Uid>
+</InstancePath>
+<Position>-0.015173432645877727 0.061131642173345019 0.009999999999999943</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>2-6</Uid>
+</InstancePath>
+<Position>-0.011523913591206913 0.0050401936165715422 0.06500000000000003</Position>
+<Axis>0 0 -1.0000000000000002</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение15">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-4</Uid>
+</InstancePath>
+<Position>-0.015173432645877727 0.061131642173345019 0.009999999999999943</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>2-6</Uid>
+</InstancePath>
+<Position>-0.011523913591206913 0.0050401936165715422 0.06500000000000003</Position>
+<Axis>0 0 1.0000000000000002</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный16">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-4</Uid>
+</InstancePath>
+<Position>-0.031007416938446913 -0.093698436977586036 -0.014142135623730959</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>4-4</Uid>
+</InstancePath>
+<Position>0.0034031062643329751 0.059999999999999998 -0.042800743613471748</Position>
+<Axis>0 -1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение16">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-4</Uid>
+</InstancePath>
+<Position>0.011831417980685266 -0.089443738017678756 0.010622836122234944</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>4-4</Uid>
+</InstancePath>
+<Position>0.075432441833817046 0.049999999999999996 0.022038685013739123</Position>
+<Axis>0 1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный17">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-2</Uid>
+</InstancePath>
+<Position>-0.031007416938446858 -0.093698436977586091 -0.014142135623730928</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>4-2</Uid>
+</InstancePath>
+<Position>0.003403106264332989 0.05999999999999997 -0.042800743613471734</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение17">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-2</Uid>
+</InstancePath>
+<Position>0.011831417980685294 -0.089443738017678798 0.065927202866446821</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>4-2</Uid>
+</InstancePath>
+<Position>0.075432441833817032 0.049999999999999989 0.022038685013739137</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="Концентричный18">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>3-3</Uid>
+</InstancePath>
+<Position>-0.031007416938446896 -0.093698436977586064 -0.014142135623730956</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>4-3</Uid>
+</InstancePath>
+<Position>0.0034031062643329751 0.060000000000000026 -0.042800743613471748</Position>
+<Axis>0 -1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="Совпадение18">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>3-3</Uid>
+</InstancePath>
+<Position>0.011831417980685249 -0.08944373801767877 0.010622836122234944</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>4-3</Uid>
+</InstancePath>
+<Position>0.075432441833817032 0.050000000000000017 0.022038685013739179</Position>
+<Axis>0 1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+</Assemblies>
+<Parts>
+<Part name="1" uid="1*:*По умолчанию" version="129">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="1.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.16005788610093147</Mass>
+<CenterOfMass>-0.05000000000000001 0.029999999999999992 0.024109622508826384</CenterOfMass>
+<Inertia>0.00021127984887634807 0.00026307871268935803 0.00014074919711326296 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="1_По умолчанию_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.38039215686274508" g="0.47843137254901957" b="0.78823529411764703" a="1"/>
+<Diffuse r="0.30431372549019609" g="0.38274509803921569" b="0.63058823529411767" a="1"/>
+<Specular r="0.11411764705882352" g="0.14352941176470588" b="0.2364705882352941" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="2" uid="2*:*По умолчанию" version="142">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="2.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.14788273746067421</Mass>
+<CenterOfMass>-0.011480762103838089 0.0050401936165715448 0.02751662803614063</CenterOfMass>
+<Inertia>6.3600776658096099e-05 6.9332749456774126e-05 6.9045711976738159e-05 0 1.2758282815833126e-07 0</Inertia>
+</MassProperties>
+<GeometryFile name="2_По умолчанию_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="3" uid="3*:*По умолчанию" version="136">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="3.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.38981632454285614</Mass>
+<CenterOfMass>-0.015536265375368886 -0.0075107907305629832 0.028002557766601772</CenterOfMass>
+<Inertia>0.0010438568672746977 0.0001922456512285729 0.00098356190193274809 6.1571479368186121e-05 3.1511558047630278e-06 -3.3975979582470037e-05</Inertia>
+</MassProperties>
+<GeometryFile name="3_По умолчанию_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="4" uid="4*:*По умолчанию" version="117">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="4.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.19748063690963402</Mass>
+<CenterOfMass>0.0017082030588310535 0.025029828171093938 0.011344999799357668</CenterOfMass>
+<Inertia>0.00039228714743709433 0.00036612611661644028 5.6397105844020671e-05 3.189447557416997e-07 4.3915981505268298e-06 -9.9838039855377287e-09</Inertia>
+</MassProperties>
+<GeometryFile name="4_По умолчанию_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+</Parts>
+</SimscapeMultibodyImportXML>
