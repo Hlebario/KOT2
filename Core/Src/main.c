@@ -436,7 +436,7 @@ void stand()
 //void UpdatePosition(float theta_abad, float theta_hip, float theta_knee)
 void UpdatePosition(int j, float relPos)
 {
-	PCA9685_SetServoAngle(j, relPos);
+	//PCA9685_SetServoAngle(j, relPos);
 	/*
 	 * front left
 	 * 			abad плечо
@@ -467,50 +467,62 @@ void UpdatePosition(int j, float relPos)
 //abad плечо
 //hip бедро
 //knee колено
-	/*switch(j)
+	switch(j)
 	{
 	//Передняя левая
 	case 0:
-		TIM2 ->CCR1 = relPos + 750 - 50;//плечо
+	PCA9685_SetServoAngle(j, relPos + 750 - 50);
+		///TIM2 ->CCR1 = relPos + 750 - 50;//плечо
 		break;
 	case 1:
-		TIM2 ->CCR2 = relPos + 750 - 300;//бедро
+	PCA9685_SetServoAngle(j, relPos + 750 - 300);
+		//TIM2 ->CCR2 = relPos + 750 - 300;//бедро
 		break;
 	case 2:
-		TIM2 ->CCR3 = relPos + 750;//колено 1300 200
+	PCA9685_SetServoAngle(j, relPos + 750);
+		//TIM2 ->CCR3 = relPos + 750;//колено 1300 200
 		break;
 	//Предняя правая
 	case 3:
-		TIM2 ->CCR4 = relPos + 750 - 470;
+	PCA9685_SetServoAngle(j, relPos + 750 - 470);
+		//TIM2 ->CCR4 = relPos + 750 - 470;
 		break;
 	case 4:
-		TIM3 ->CCR1 = relPos + 750 - 30;
+	PCA9685_SetServoAngle(j, relPos + 750 - 30);
+		//TIM3 ->CCR1 = relPos + 750 - 30;
 		break;
 	case 5:
-		TIM3 ->CCR2 = relPos + 750 - 250;
+	PCA9685_SetServoAngle(j, relPos + 750 - 250);
+		//TIM3 ->CCR2 = relPos + 750 - 250;
 		break;
 	//Звдняя левая
 	case 6:
-		TIM3 ->CCR3 = relPos + 750 - 150;
+	PCA9685_SetServoAngle(j, relPos + 750 - 150);
+		//TIM3 ->CCR3 = relPos + 750 - 150;
 		break;
 	case 7:
-		TIM3 ->CCR4 = relPos + 750 + 250;
+	PCA9685_SetServoAngle(j, relPos + 750 + 250);
+		//TIM3 ->CCR4 = relPos + 750 + 250;
 		break;
 	case 8:
-		TIM4 ->CCR1 = relPos + 750 - 600;
+	PCA9685_SetServoAngle(j, relPos + 750 - 600);
+		//TIM4 ->CCR1 = relPos + 750 - 600;
 		break;
 	//Задняя правая
 	case 9:
-		TIM4 ->CCR2 = relPos + 750 - 350;
+	PCA9685_SetServoAngle(j, relPos + 750 - 350);
+		//TIM4 ->CCR2 = relPos + 750 - 350;
 		break;
 	case 10:
-		TIM4 ->CCR3 = relPos + 750 - 450;
+	PCA9685_SetServoAngle(j, relPos + 750 - 450);
+		//TIM4 ->CCR3 = relPos + 750 - 450;
 		break;
 	case 11:
-		TIM5 ->CCR1 = relPos + 750 + 200;
+	PCA9685_SetServoAngle(j, relPos + 750 + 200);
+		//TIM5 ->CCR1 = relPos + 750 + 200;
 		//TIM4 ->CCR1 = relPos + 750;
 		break;
-	}*/
+	}
 	/*switch(j)
 		{
 		//Передняя левая
@@ -658,7 +670,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	        PCA9685_SetServoAngle(5, 0);
+	        /*PCA9685_SetServoAngle(5, 0);
 	        PCA9685_SetServoAngle(7, 36);
 	        PCA9685_SetServoAngle(9, 72);
 	        PCA9685_SetServoAngle(11, 108);
@@ -704,8 +716,9 @@ int main(void)
 	        PCA9685_SetServoAngle(11, 72);
 	        PCA9685_SetServoAngle(13, 108);
 	        PCA9685_SetServoAngle(15, 144);
-	        HAL_Delay(1000);
-
+	        HAL_Delay(1000);*/
+	  step();
+	  //inPlace();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
