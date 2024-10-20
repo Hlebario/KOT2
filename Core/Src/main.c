@@ -471,54 +471,54 @@ void UpdatePosition(int j, float relPos)
 	{
 	//Передняя левая
 	case 0:
-	PCA9685_SetServoAngle(j, relPos + 750 - 50);
+	PCA9685_SetServoAngle(0, relPos - 25);
 		///TIM2 ->CCR1 = relPos + 750 - 50;//плечо
 		break;
 	case 1:
-	PCA9685_SetServoAngle(j, relPos + 750 - 300);
+	PCA9685_SetServoAngle(1, relPos + 135);
 		//TIM2 ->CCR2 = relPos + 750 - 300;//бедро
 		break;
 	case 2:
-	PCA9685_SetServoAngle(j, relPos + 750);
+	PCA9685_SetServoAngle(2, relPos - 70);
 		//TIM2 ->CCR3 = relPos + 750;//колено 1300 200
 		break;
 	//Предняя правая
 	case 3:
-	PCA9685_SetServoAngle(j, relPos + 750 - 470);
+	PCA9685_SetServoAngle(3, relPos);
 		//TIM2 ->CCR4 = relPos + 750 - 470;
 		break;
 	case 4:
-	PCA9685_SetServoAngle(j, relPos + 750 - 30);
+	PCA9685_SetServoAngle(4, relPos + 15);
 		//TIM3 ->CCR1 = relPos + 750 - 30;
 		break;
 	case 5:
-	PCA9685_SetServoAngle(j, relPos + 750 - 250);
+	PCA9685_SetServoAngle(5, relPos + 25);
 		//TIM3 ->CCR2 = relPos + 750 - 250;
 		break;
 	//Звдняя левая
 	case 6:
-	PCA9685_SetServoAngle(j, relPos + 750 - 150);
+	PCA9685_SetServoAngle(6, relPos - 10);
 		//TIM3 ->CCR3 = relPos + 750 - 150;
 		break;
 	case 7:
-	PCA9685_SetServoAngle(j, relPos + 750 + 250);
+	PCA9685_SetServoAngle(7, relPos + 70);
 		//TIM3 ->CCR4 = relPos + 750 + 250;
 		break;
 	case 8:
-	PCA9685_SetServoAngle(j, relPos + 750 - 600);
+	PCA9685_SetServoAngle(8, relPos - 75);
 		//TIM4 ->CCR1 = relPos + 750 - 600;
 		break;
 	//Задняя правая
 	case 9:
-	PCA9685_SetServoAngle(j, relPos + 750 - 350);
+	PCA9685_SetServoAngle(9, relPos);
 		//TIM4 ->CCR2 = relPos + 750 - 350;
 		break;
 	case 10:
-	PCA9685_SetServoAngle(j, relPos + 750 - 450);
+	PCA9685_SetServoAngle(10, relPos - 20);
 		//TIM4 ->CCR3 = relPos + 750 - 450;
 		break;
 	case 11:
-	PCA9685_SetServoAngle(j, relPos + 750 + 200);
+	PCA9685_SetServoAngle(11, relPos - 20);
 		//TIM5 ->CCR1 = relPos + 750 + 200;
 		//TIM4 ->CCR1 = relPos + 750;
 		break;
@@ -718,6 +718,7 @@ int main(void)
 	        PCA9685_SetServoAngle(15, 144);
 	        HAL_Delay(1000);*/
 	  step();
+	  //stand();
 	  //inPlace();
     /* USER CODE END WHILE */
 

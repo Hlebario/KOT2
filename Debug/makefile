@@ -60,8 +60,8 @@ all: main-build
 main-build: KOT2.elf secondary-outputs
 
 # Tool invocations
-KOT2.elf KOT2.map: $(OBJS) $(USER_OBJS) C:\KOT\KOT2\STM32F407ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "KOT2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\KOT\KOT2\STM32F407ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="KOT2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+KOT2.elf KOT2.map: $(OBJS) $(USER_OBJS) C:\WorkSpace\ CubeIDE\KOT2\STM32F407ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "KOT2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\WorkSpace CubeIDE\KOT2\STM32F407ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="KOT2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
