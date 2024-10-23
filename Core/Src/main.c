@@ -32,9 +32,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define a 94.5
-#define b 180
-#define c 180
+#define a 50//94.5
+#define b 90//180
+#define c 100//100
 #define PI 3.1415926536
 
 #define BUFSIZE 1
@@ -380,14 +380,14 @@ void inPlace()
 
 void step()
 {
-  int normYF = -50;
-  int normYB = -50;//-110
-  int offset = 200;//100
-  int offsetY = 300;
-  int time = 160;
-  int normX = 110;
-  int normZ = 300;
-  moveTOPS(normX, normYF, normZ - offset,   //FL
+  int normYF = -0;//-50
+  int normYB = -0;//-50//-110
+  int offset = 30;//100//200
+  int offsetY = 20;//80//300
+  int time = 200;//200//160
+  int normX = 50;//110
+  int normZ = 150;//300
+  /*moveTOPS(normX, normYF, normZ - offset,   //FL
            normX, normYF, normZ,                 //FR
            normX, normYB, normZ,                 //BL
            normX, normYB, normZ - offset);  //BR
@@ -416,16 +416,88 @@ void step()
            normX, normYF + offsetY, normZ,  //FR
            normX, normYB + offsetY, normZ,                          //BL
            normX, normYB, normZ);                                             //BR
+  HAL_Delay(time);*/
+  //1 point
+  moveTOPS(normX, normYF, normZ - offset/2,   //FL
+           normX, normYF, normZ,                 //FR
+           normX, normYB, normZ,                 //BL
+           normX, normYB, normZ - offset/2);  //BR
+  HAL_Delay(time/2);
+  //2 point
+  moveTOPS(normX, normYF, normZ - offset,   //FL
+           normX, normYF, normZ,                 //FR
+           normX, normYB, normZ,                 //BL
+           normX, normYB, normZ - offset);  //BR
+  HAL_Delay(time);
+  //1 point
+  moveTOPS(normX, normYF + offsetY/2, normZ - offset/2,                           //FL
+           normX, normYF, normZ,                                                             //FR
+           normX, normYB, normZ,                                                             //BL
+           normX, normYB + offsetY/2, normZ - offset/2);  //BR
+  HAL_Delay(time/2);
+  //2 point
+  moveTOPS(normX, normYF + offsetY, normZ - offset,                           //FL
+           normX, normYF, normZ,                                                             //FR
+           normX, normYB, normZ,                                                             //BL
+           normX, normYB + offsetY, normZ - offset);  //BR
+  HAL_Delay(time);
+  //1 point
+  moveTOPS(normX, normYF + offsetY/2, normZ,                           //FL
+           normX, normYF, normZ,                                               //FR
+           normX, normYB, normZ,                                               //BL
+           normX, normYB + offsetY/2, normZ);  //BR
+  HAL_Delay(time/2);
+  //2 point
+  moveTOPS(normX, normYF + offsetY, normZ,                           //FL
+           normX, normYF, normZ,                                               //FR
+           normX, normYB, normZ,                                               //BL
+           normX, normYB + offsetY, normZ);  //BR
+  HAL_Delay(time);
+  //1 point
+  moveTOPS(normX, normYF, normZ,                //FL
+           normX, normYF, normZ - offset/2,  //FR
+           normX, normYB, normZ - offset/2,  //BL
+           normX, normYB, normZ);               //BR
+  HAL_Delay(time/2);
+  //2 point
+  moveTOPS(normX, normYF, normZ,                //FL
+           normX, normYF, normZ - offset,  //FR
+           normX, normYB, normZ - offset,  //BL
+           normX, normYB, normZ);               //BR
+  HAL_Delay(time);
+  //1 point
+  moveTOPS(normX, normYF, normZ,                                                            //FL
+           normX, normYF + offsetY/2, normZ - offset/2,  //FR
+           normX, normYB + offsetY/2, normZ - offset/2,                          //BL
+           normX, normYB, normZ);                                                           //BR
+  HAL_Delay(time);
+  //2 point
+  moveTOPS(normX, normYF, normZ,                                                            //FL
+           normX, normYF + offsetY, normZ - offset,  //FR
+           normX, normYB + offsetY, normZ - offset,                          //BL
+           normX, normYB, normZ);                                                           //BR
+  HAL_Delay(time);
+  //1 point
+  moveTOPS(normX, normYF, normZ,                                              //FL
+           normX, normYF + offsetY/2, normZ,  //FR
+           normX, normYB + offsetY/2, normZ,                          //BL
+           normX, normYB, normZ);                                             //BR
+  HAL_Delay(time/2);
+  //2 point
+  moveTOPS(normX, normYF, normZ,                                              //FL
+           normX, normYF + offsetY, normZ,  //FR
+           normX, normYB + offsetY, normZ,                          //BL
+           normX, normYB, normZ);                                             //BR
   HAL_Delay(time);
 }
 
 void stand()
 {
-	int normYF = -50;
-	int normYB = -50;//-110
-	int normX = 110;
-	int normZ = 300;
-	int time = 160;
+	int normYF = 0;
+	int normYB = 0;
+	int normX = 50;
+	int normZ = 150;
+	int time = 150;
 	  moveTOPS(normX, normYF, normZ,   //FL
 	           normX, normYF, normZ,                 //FR
 	           normX, normYB, normZ,                 //BL
@@ -471,15 +543,15 @@ void UpdatePosition(int j, float relPos)
 	{
 	//Передняя левая
 	case 0:
-	PCA9685_SetServoAngle(0, relPos - 25);
+	PCA9685_SetServoAngle(0, relPos - 20);
 		///TIM2 ->CCR1 = relPos + 750 - 50;//плечо
 		break;
 	case 1:
-	PCA9685_SetServoAngle(1, relPos + 135);
+	PCA9685_SetServoAngle(1, relPos + 120);
 		//TIM2 ->CCR2 = relPos + 750 - 300;//бедро
 		break;
 	case 2:
-	PCA9685_SetServoAngle(2, relPos - 70);
+	PCA9685_SetServoAngle(2, relPos - 30);//70
 		//TIM2 ->CCR3 = relPos + 750;//колено 1300 200
 		break;
 	//Предняя правая
@@ -488,11 +560,11 @@ void UpdatePosition(int j, float relPos)
 		//TIM2 ->CCR4 = relPos + 750 - 470;
 		break;
 	case 4:
-	PCA9685_SetServoAngle(4, relPos + 15);
+	PCA9685_SetServoAngle(4, relPos + 20);
 		//TIM3 ->CCR1 = relPos + 750 - 30;
 		break;
 	case 5:
-	PCA9685_SetServoAngle(5, relPos + 25);
+	PCA9685_SetServoAngle(5, relPos + 40);
 		//TIM3 ->CCR2 = relPos + 750 - 250;
 		break;
 	//Звдняя левая
@@ -505,7 +577,7 @@ void UpdatePosition(int j, float relPos)
 		//TIM3 ->CCR4 = relPos + 750 + 250;
 		break;
 	case 8:
-	PCA9685_SetServoAngle(8, relPos - 75);
+	PCA9685_SetServoAngle(8, relPos - 50);
 		//TIM4 ->CCR1 = relPos + 750 - 600;
 		break;
 	//Задняя правая
@@ -518,7 +590,7 @@ void UpdatePosition(int j, float relPos)
 		//TIM4 ->CCR3 = relPos + 750 - 450;
 		break;
 	case 11:
-	PCA9685_SetServoAngle(11, relPos - 20);
+	PCA9685_SetServoAngle(11, relPos);
 		//TIM5 ->CCR1 = relPos + 750 + 200;
 		//TIM4 ->CCR1 = relPos + 750;
 		break;
