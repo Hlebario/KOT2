@@ -48,11 +48,6 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
-TIM_HandleTypeDef htim2;
-TIM_HandleTypeDef htim3;
-TIM_HandleTypeDef htim4;
-TIM_HandleTypeDef htim5;
-
 UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
 DMA_HandleTypeDef hdma_usart1_tx;
@@ -67,10 +62,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_TIM2_Init(void);
-static void MX_TIM3_Init(void);
-static void MX_TIM4_Init(void);
-static void MX_TIM5_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 //int Set_Servo_Angle(uint8_t);////////////////////////////////////////////////////////////
@@ -258,61 +249,10 @@ float getTheta(int joint, float X, float Y, float Z)
       angle = acos((pow(a, 2) + pow(b, 2) + pow(c, 2) - L) / (2 * b * c));
       break;
 	}
-	/*if (joint > 2)
-	{
-		return (180 - angle * (180 / PI));
-	}
-	else
-	{
-		return (angle * (180 / PI));
-	}*/
 	return (angle * (180 / PI));
     //converts angle to degrees and returns the value
 }
-/*void ReciveToServo(uint8_t rx_buff[1])
-{
-	float X = 110;
-	float Y = -100;
-	float Z = 300;//(float)rx_buff[0];//300
 
-	switch(rx_buff[0])
-	{
-		case 49:
-			Z = 300;
-			break;
-		case 50:
-			Z = 280;
-			break;
-		case 51:
-			Z = 240;
-			break;
-		case 52:
-			Z = 220;
-			break;
-		case 53:
-			Z = 200;
-			break;
-		case 54:
-			Z = 180;
-			break;
-		case 55:
-			Z = 160;
-			break;
-		case 56:
-			Z = 140;
-			break;
-		case 57:
-			Z = 100;
-			break;
-	}
-
-	float L = pow(X, 2) + pow(Y, 2) + pow(Z, 2);
-	float theta_abad = atan((X / Z)) + acos((a / (sqrt(pow(X, 2) + pow(Z, 2)))));
-	float theta_hip = (PI / 2) - asin(-Y / sqrt(L - pow(a, 2))) - acos((pow(b, 2) - pow(a, 2) - pow(c, 2) + L) / (2 * b * sqrt(L - pow(a, 2))));
-	float theta_knee = acos((pow(a, 2) + pow(b, 2) + pow(c, 2) - L) / (2 * b * c));
-	UpdatePosition(theta_abad* 180 / PI, theta_hip* 180 / PI, theta_knee* 180 / PI);
-	HAL_UART_Receive_DMA(&huart1, rx_buff, 1);
-}*/
 //Fun. for calculation angle legs and transmit at fun. UpdatePosition
 void moveTOPS(float X0, float Y0, float Z0,    //FL leg
               float X1, float Y1, float Z1,    //FR leg
@@ -352,30 +292,23 @@ void moveTOPS(float X0, float Y0, float Z0,    //FL leg
 //trots in place
 void inPlace()
 {
-  float normX = 110;
-  float normYF = -30;
-  float normYB = -100;
-  float normZ = 300;
-  moveTOPS(normX, normYF, normZ - 160,   //FL
-           normX, normYF, normZ,        //FR
-           normX, normYB, normZ,        //BL
-           normX, normYB, normZ - 160);  //BR
-  HAL_Delay(150);
-  moveTOPS(normX, normYF, normZ,   //FL
-           normX, normYF, normZ,   //FR
-           normX, normYB, normZ,   //BL
-           normX, normYB, normZ);  //BR
-  HAL_Delay(150);
-  moveTOPS(normX, normYF, normZ,       //FL
-           normX, normYF, normZ - 160,  //FR
-           normX, normYB, normZ - 160,  //BL
-           normX, normYB, normZ);      //BR
-  HAL_Delay(150);
-  moveTOPS(normX, normYF, normZ,   //FL
-           normX, normYF, normZ,   //FR
-           normX, normYB, normZ,   //BL
-           normX, normYB, normZ);  //BR
-  HAL_Delay(150);
+	int normYF = -0;//-50
+	int normYB = -0;//-50//-110
+	int offset = 30;//100//200
+	//int offsetY = 20;//80//300
+	int time = 1000;//200//160
+	int normX = 50;//110
+	int normZ = 150;//300
+	moveTOPS(normX, normYF, normZ - offset,   //FL
+			normX, normYF, normZ,                 //FR
+			normX, normYB, normZ,                 //BL
+			normX, normYB, normZ);  //BR
+	HAL_Delay(time);
+	moveTOPS(normX, normYF, normZ,                                              //FL
+			normX, normYF, normZ,  //FR
+			normX, normYB, normZ,                          //BL
+			normX, normYB, normZ);                                             //BR
+    HAL_Delay(time);
 }
 
 void step()
@@ -384,45 +317,16 @@ void step()
   int normYB = -0;//-50//-110
   int offset = 30;//100//200
   int offsetY = 20;//80//300
-  int time = 200;//200//160
+  int time = 400;//200//160
   int normX = 50;//110
   int normZ = 150;//300
-  /*moveTOPS(normX, normYF, normZ - offset,   //FL
-           normX, normYF, normZ,                 //FR
-           normX, normYB, normZ,                 //BL
-           normX, normYB, normZ - offset);  //BR
-  HAL_Delay(time);
-  moveTOPS(normX, normYF + offsetY, normZ - offset,                           //FL
-           normX, normYF, normZ,                                                             //FR
-           normX, normYB, normZ,                                                             //BL
-           normX, normYB + offsetY, normZ - offset);  //BR
-  HAL_Delay(time);
-  moveTOPS(normX, normYF + offsetY, normZ,                           //FL
-           normX, normYF, normZ,                                               //FR
-           normX, normYB, normZ,                                               //BL
-           normX, normYB + offsetY, normZ);  //BR
-  HAL_Delay(time);
-  moveTOPS(normX, normYF, normZ,                //FL
-           normX, normYF, normZ - offset,  //FR
-           normX, normYB, normZ - offset,  //BL
-           normX, normYB, normZ);               //BR
-  HAL_Delay(time);
-  moveTOPS(normX, normYF, normZ,                                                            //FL
-           normX, normYF + offsetY, normZ - offset,  //FR
-           normX, normYB + offsetY, normZ - offset,                          //BL
-           normX, normYB, normZ);                                                           //BR
-  HAL_Delay(time);
-  moveTOPS(normX, normYF, normZ,                                              //FL
-           normX, normYF + offsetY, normZ,  //FR
-           normX, normYB + offsetY, normZ,                          //BL
-           normX, normYB, normZ);                                             //BR
-  HAL_Delay(time);*/
+
   //1 point
   moveTOPS(normX, normYF, normZ - offset/2,   //FL
            normX, normYF, normZ,                 //FR
            normX, normYB, normZ,                 //BL
            normX, normYB, normZ - offset/2);  //BR
-  HAL_Delay(time/2);
+  HAL_Delay(time);
   //2 point
   moveTOPS(normX, normYF, normZ - offset,   //FL
            normX, normYF, normZ,                 //FR
@@ -434,7 +338,7 @@ void step()
            normX, normYF, normZ,                                                             //FR
            normX, normYB, normZ,                                                             //BL
            normX, normYB + offsetY/2, normZ - offset/2);  //BR
-  HAL_Delay(time/2);
+  HAL_Delay(time);
   //2 point
   moveTOPS(normX, normYF + offsetY, normZ - offset,                           //FL
            normX, normYF, normZ,                                                             //FR
@@ -446,7 +350,7 @@ void step()
            normX, normYF, normZ,                                               //FR
            normX, normYB, normZ,                                               //BL
            normX, normYB + offsetY/2, normZ);  //BR
-  HAL_Delay(time/2);
+  HAL_Delay(time);
   //2 point
   moveTOPS(normX, normYF + offsetY, normZ,                           //FL
            normX, normYF, normZ,                                               //FR
@@ -458,7 +362,7 @@ void step()
            normX, normYF, normZ - offset/2,  //FR
            normX, normYB, normZ - offset/2,  //BL
            normX, normYB, normZ);               //BR
-  HAL_Delay(time/2);
+  HAL_Delay(time);
   //2 point
   moveTOPS(normX, normYF, normZ,                //FL
            normX, normYF, normZ - offset,  //FR
@@ -482,7 +386,7 @@ void step()
            normX, normYF + offsetY/2, normZ,  //FR
            normX, normYB + offsetY/2, normZ,                          //BL
            normX, normYB, normZ);                                             //BR
-  HAL_Delay(time/2);
+  HAL_Delay(time);
   //2 point
   moveTOPS(normX, normYF, normZ,                                              //FL
            normX, normYF + offsetY, normZ,  //FR
@@ -508,34 +412,6 @@ void stand()
 //void UpdatePosition(float theta_abad, float theta_hip, float theta_knee)
 void UpdatePosition(int j, float relPos)
 {
-	//PCA9685_SetServoAngle(j, relPos);
-	/*
-	 * front left
-	 * 			abad плечо
-	 * 			hip бедро
-	 * 			knee колено
-	 * front right
-	 * back left
-	 * back right
-	 */
-	//uint16_t Pulse_length = 500;
-	//float theta_abad_PWM = 500;//centre 750
-	//float theta_hip_PWM = 400;
-	//float theta_knee_PWM = 200;
-	    /*if (theta_abad >= 0  &&  theta_abad <= 180)
-	    {
-	    	theta_abad_PWM += (1000-500)/180 * theta_abad;
-	    }
-	    if (theta_hip >= 0  &&  theta_hip <= 180)
-	    {
-	    	theta_hip_PWM += (1300-400)/180 * theta_hip;
-	    }
-	    if (theta_knee >= 0  &&  theta_knee <= 180)
-	    {
-	    	theta_knee_PWM += (1300-200)/180 * theta_knee;
-	    }*/
-	    //TIM2->CCR1=Pulse_length;
-	    //return 0;
 //abad плечо
 //hip бедро
 //knee колено
@@ -595,67 +471,6 @@ void UpdatePosition(int j, float relPos)
 		//TIM4 ->CCR1 = relPos + 750;
 		break;
 	}
-	/*switch(j)
-		{
-		//Передняя левая
-		case 0:
-			TIM2 ->CCR1 = relPos + 750-250;//плечо
-			break;
-		case 1:
-			TIM2 ->CCR2 = relPos + 750 + 400;//бедро
-			break;
-		case 2:
-			TIM2 ->CCR3 = relPos + 750 - 400;//колено 1300 200
-			break;
-		//Предняя правая
-		case 3:
-			TIM2 ->CCR4 = relPos + 750 - 450;
-			break;
-		case 4:
-			TIM3 ->CCR1 = relPos + 750 + 100;
-			break;
-		case 5:
-			TIM3 ->CCR2 = relPos + 750 - 250;
-			break;
-		//Звдняя левая
-		case 6:
-			TIM3 ->CCR3 = relPos + 750 - 150;
-			break;
-		case 7:
-			TIM3 ->CCR4 = relPos + 750 + 350;
-			break;
-		case 8:
-			TIM4 ->CCR1 = relPos + 750 - 600;
-			break;
-		//Задняя правая
-		case 9:
-			TIM4 ->CCR2 = relPos + 750 - 350;
-			break;
-		case 10:
-			TIM4 ->CCR3 = relPos + 750 - 350;
-			break;
-		case 11:
-			TIM5 ->CCR1 = relPos + 750 + 200;
-			//TIM4 ->CCR1 = relPos + 750;
-			break;
-		}*/
-/*
-	TIM2 ->CCR1 = theta_abad_PWM;
-	TIM2 ->CCR2 = theta_hip_PWM;
-	TIM2 ->CCR3 = theta_knee_PWM;
-
-	TIM2 ->CCR4 = theta_abad_PWM;
-	TIM3 ->CCR1 = 0;
-	TIM3 ->CCR2 = 0;
-
-	TIM3 ->CCR3 = theta_abad_PWM;
-	TIM3 ->CCR4 = 0;
-	TIM4 ->CCR1 = 0;
-
-	TIM4 ->CCR2 = theta_abad_PWM;
-	TIM4 ->CCR3 = 0;
-	TIM4 ->CCR4 = 0;*/
-	    //TIM2 ->CCR1 = 900;
 }
 /* USER CODE END 0 */
 
@@ -690,105 +505,22 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_USART1_UART_Init();
-  MX_TIM2_Init();
-  MX_TIM3_Init();
-  MX_TIM4_Init();
-  MX_TIM5_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-
 
   /*I2C1------------------------------------------------------------------------*/
   PCA9685_Init(50); // 50Hz for servo
   /*I2C1------------------------------------------------------------------------*/
 
-
-
-
-
-
-
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
   HAL_UART_Receive_DMA(&huart1, rx_buff, bufferUART);
-
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);///////////////////////////////////////////////////////////////////////////////////
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
-
-  /*int Set_Servo_Angle(uint8_t Angle) // from 0 to 180 degrees
-  {
-    uint16_t Pulse_length = 500;
-    if (Angle > 0  &&  Angle <= 180)
-    {
-        Pulse_length += (2700-500)/180 * Angle;
-    }
-
-    TIM2->CCR1=Pulse_length;
-    return 0;
-  }*/
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	        /*PCA9685_SetServoAngle(5, 0);
-	        PCA9685_SetServoAngle(7, 36);
-	        PCA9685_SetServoAngle(9, 72);
-	        PCA9685_SetServoAngle(11, 108);
-	        PCA9685_SetServoAngle(13, 144);
-	        PCA9685_SetServoAngle(15, 180);
-	        HAL_Delay(1000);
 
-	        PCA9685_SetServoAngle(5, 36);
-	        PCA9685_SetServoAngle(7, 72);
-	        PCA9685_SetServoAngle(9, 108);
-	        PCA9685_SetServoAngle(11, 144);
-	        PCA9685_SetServoAngle(13, 180);
-	        PCA9685_SetServoAngle(15, 0);
-	        HAL_Delay(1000);
-
-	        PCA9685_SetServoAngle(5, 72);
-	        PCA9685_SetServoAngle(7, 108);
-	        PCA9685_SetServoAngle(9, 144);
-	        PCA9685_SetServoAngle(11, 180);
-	        PCA9685_SetServoAngle(13, 0);
-	        PCA9685_SetServoAngle(15, 36);
-	        HAL_Delay(1000);
-
-	        PCA9685_SetServoAngle(5, 108);
-	        PCA9685_SetServoAngle(7, 144);
-	        PCA9685_SetServoAngle(9, 180);
-	        PCA9685_SetServoAngle(11, 0);
-	        PCA9685_SetServoAngle(13, 36);
-	        PCA9685_SetServoAngle(15, 72);
-	        HAL_Delay(1000);
-
-	        PCA9685_SetServoAngle(5, 144);
-	        PCA9685_SetServoAngle(7, 180);
-	        PCA9685_SetServoAngle(9, 0);
-	        PCA9685_SetServoAngle(11, 36);
-	        PCA9685_SetServoAngle(13, 72);
-	        PCA9685_SetServoAngle(15, 108);
-	        HAL_Delay(1000);
-
-	        PCA9685_SetServoAngle(5, 180);
-	        PCA9685_SetServoAngle(7, 0);
-	        PCA9685_SetServoAngle(9, 36);
-	        PCA9685_SetServoAngle(11, 72);
-	        PCA9685_SetServoAngle(13, 108);
-	        PCA9685_SetServoAngle(15, 144);
-	        HAL_Delay(1000);*/
 	  step();
 	  //stand();
 	  //inPlace();
@@ -876,238 +608,6 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
-  * @brief TIM2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM2_Init(void)
-{
-
-  /* USER CODE BEGIN TIM2_Init 0 */
-
-  /* USER CODE END TIM2_Init 0 */
-
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-
-  /* USER CODE BEGIN TIM2_Init 1 */
-
-  /* USER CODE END TIM2_Init 1 */
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 95;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 10100;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM2_Init 2 */
-
-  /* USER CODE END TIM2_Init 2 */
-  HAL_TIM_MspPostInit(&htim2);
-
-}
-
-/**
-  * @brief TIM3 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM3_Init(void)
-{
-
-  /* USER CODE BEGIN TIM3_Init 0 */
-
-  /* USER CODE END TIM3_Init 0 */
-
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-
-  /* USER CODE BEGIN TIM3_Init 1 */
-
-  /* USER CODE END TIM3_Init 1 */
-  htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 95;
-  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 10100;
-  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM3_Init 2 */
-
-  /* USER CODE END TIM3_Init 2 */
-  HAL_TIM_MspPostInit(&htim3);
-
-}
-
-/**
-  * @brief TIM4 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM4_Init(void)
-{
-
-  /* USER CODE BEGIN TIM4_Init 0 */
-
-  /* USER CODE END TIM4_Init 0 */
-
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-
-  /* USER CODE BEGIN TIM4_Init 1 */
-
-  /* USER CODE END TIM4_Init 1 */
-  htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 95;
-  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 10100;
-  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM4_Init 2 */
-
-  /* USER CODE END TIM4_Init 2 */
-  HAL_TIM_MspPostInit(&htim4);
-
-}
-
-/**
-  * @brief TIM5 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM5_Init(void)
-{
-
-  /* USER CODE BEGIN TIM5_Init 0 */
-
-  /* USER CODE END TIM5_Init 0 */
-
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-
-  /* USER CODE BEGIN TIM5_Init 1 */
-
-  /* USER CODE END TIM5_Init 1 */
-  htim5.Instance = TIM5;
-  htim5.Init.Prescaler = 95;
-  htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim5.Init.Period = 10100;
-  htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_PWM_Init(&htim5) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim5, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM5_Init 2 */
-
-  /* USER CODE END TIM5_Init 2 */
-  HAL_TIM_MspPostInit(&htim5);
 
 }
 
